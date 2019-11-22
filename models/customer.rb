@@ -23,7 +23,7 @@ require_relative('../db/sql_runner')
   end
 
 
-  
+
   def self.delete_all()
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
@@ -34,6 +34,18 @@ require_relative('../db/sql_runner')
     customers = SqlRunner.run(sql)
     return customers.map {|customer| Customer.new(customer)}
   end
+
+  def update()
+    sql = "UPDATE customers SET (name, funds) = ($1, $2) WHERE id = $3 "
+    values = [@name, @funds, @id]
+    result = SqlRunner.run(sql, values)
+
+  end
+
+
+
+
+  
 
 #
 end
