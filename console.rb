@@ -4,10 +4,10 @@ require_relative('models/customer')
 # require_relative( 'models/film' )
 
 
-# Ticket.delete_all()
-Customer.delete_all()
-# Film.delete_all()
-
+# # Ticket.delete_all()
+# Customer.delete_all()
+# # Film.delete_all()
+#
 customer1 = Customer.new({
   'name' => 'Jeff',
   'funds' => 50
@@ -25,7 +25,7 @@ customer3 = Customer.new({
   'funds' => 30
 
 })
-#
+# #
 customer1.save()
 customer2.save()
 customer3.save()
