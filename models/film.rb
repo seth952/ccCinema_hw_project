@@ -32,5 +32,20 @@ class Film
     return films.map {|film| Film.new(film)}
   end
 
-#  
+  def update()
+    sql = "UPDATE flims SET (title, price) = ($1, $2) WHERE id = $3 "
+    values = [@title, @price, @id]
+    result = SqlRunner.run(sql, values)
+
+  end
+
+  # def customers()
+  #   sql = "SELECT customers.* FROM customers INNER JOIN tickets ON tickets.customer_id = customers.id WHERE film_id = $1"
+  #   values = [@id]
+  #   customers = SqlRunner.run(sql, values)
+  #   result = customers.map {|customer| Customer.new(customer)}
+  #   return result;
+  # end
+
+#
 end

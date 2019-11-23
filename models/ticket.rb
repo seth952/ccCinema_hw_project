@@ -33,5 +33,12 @@ require_relative('../db/sql_runner')
       return tickets.map {|ticket| Ticket.new(ticket)}
     end
 
+    def update()
+      sql = "UPDATE tickets SET (film_id, customer_id) = ($1, $2) WHERE id = $3 "
+      values = [@film_id, @customer_id, @id]
+      result = SqlRunner.run(sql, values)
+
+    end
+
 #
 end
